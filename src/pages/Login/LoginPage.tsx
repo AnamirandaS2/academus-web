@@ -1,5 +1,9 @@
-import { LoginContainer } from "./LoginContainer";
+import { LoginContainer } from "./LoginContainer.tsx";
 
 export function LoginPage() {
-  return <LoginContainer />;
+  return (
+    <div className="w-full h-full flex">
+      <LoginContainer />
+    </div>
+  );
 }
