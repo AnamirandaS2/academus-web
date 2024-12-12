@@ -40,6 +40,7 @@ export function LoginContainer() {
         </p>
       </div>
       <div className="w-[50%]">
+        
         <img
           src={bgLogin}
           alt="pilha de livros"
