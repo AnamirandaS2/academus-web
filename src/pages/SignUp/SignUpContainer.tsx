@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export function SignUpContainer() {
   return (
     <main className="w-full min-h-screen flex items-center justify-center">
-      <div className="flex flex-col w-[50%] items-center justify-center px-12 gap-10">
+      <div className="flex flex-col w-[50%] items-center  max-md:w-full max-md:px-10 justify-center px-12 gap-10">
         <div className="flex flex-col w-full items-center justify-center gap-12 ">
           <h1 className="font-poppins text-2xl font-medium">Cadastre-se</h1>
           <form action="" className="w-full flex flex-col gap-3">
@@ -49,7 +49,7 @@ export function SignUpContainer() {
           </Link>{" "}
         </p>
       </div>
-      <div className="w-[50%]">
+      <div className="w-[50%] max-md:hidden max-md:invisible">
         <img
           src={bgLogin}
           alt="pilha de livros"
