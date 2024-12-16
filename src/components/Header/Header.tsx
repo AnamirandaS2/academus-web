@@ -5,7 +5,7 @@ import { Avatar } from "../Avatar/Avatar";
 
 export default function Header() {
   return (
-    <main className="w-full  sticky  h-20 flex items-center justify-evenly py-4 bg-white">
+    <header className="w-full flex items-center justify-evenly py-4 bg-white">
       <img src={logo} alt="" className="" />
       <div className="w-[40%]">
         <InputSerchBar placeholder="Pesquise por autores, livros, artigos..." />
@@ -29,6 +29,6 @@ export default function Header() {
           />
         </div>
       </div>
-    </main>
+    </header>
   );
 }
