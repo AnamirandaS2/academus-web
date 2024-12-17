@@ -15,7 +15,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        poppins: ["Poppins", "Arial"],
+        dmSans: ["DM Sans", "Arial"],
       },
     },
   },

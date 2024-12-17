@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-dmSans;
+  }
+  h2 {
+    @apply font-dmSans font-semibold text-lg;
+  }
+  h3 {
+    @apply font-dmSans font-bold text-sm text-blue-700;
+  }
+  p {
+    @apply font-dmSans text-sm text-[#1e1e1e] font-light text-center;
+  }
+  div,
+  input,
+  h4,
+  h5,
+  h6 {
+    @apply font-dmSans;
+  }
+}

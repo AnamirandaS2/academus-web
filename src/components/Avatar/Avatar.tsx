@@ -10,7 +10,7 @@ const AvatarVariants = tv({
   variants: {
     size: {
       sm: "w-12 h-12 ",
-      lg: "w-24 h-24",
+      lg: "w-36 h-36",
     },
   },
   defaultVariants: {
