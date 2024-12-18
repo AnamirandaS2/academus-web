@@ -1,8 +1,8 @@
-import { PlayCircleIcon, ThumbsUpIcon } from "lucide-react";
+import { PlayCircleIcon } from "lucide-react";
 import { Avatar } from "../Avatar/Avatar";
 import { BiSolidLike } from "react-icons/bi";
 
-import ProgressBar from "../ProgressBar/ProgressBar";
+import ProgressBar from "../Progress/ProgressBar";
 
 export type CommentProps = {
   user: {
@@ -46,7 +46,7 @@ export default function Comment({
   user,
 }: CommentProps) {
   return (
-    <div className="w-[70%] border border-gray-200 rounded-lg flex flex-col justify-between p-3 gap-5">
+    <div className="w-full border border-gray-200 rounded-lg flex flex-col justify-between p-3 gap-5">
       <div className="flex flex-col gap-1">
         <div className="flex items-start justify-between ">
           <div className="flex items-center justify-start gap-1">
@@ -77,7 +77,7 @@ export default function Comment({
             {comment.content}
           </p>
           <div
-            className="rounded-2xl w-full flex items-center justify-center gap-5 text-xs px-8 pt-2 pb-4 text-justify"
+            className="rounded-2xl w-full flex items-center justify-start gap-5 text-xs px-8 pt-2 pb-4 text-justify"
             style={{ backgroundColor: "rgba(69, 66, 87, 0.123)" }}
           >
             <img

@@ -21,7 +21,7 @@ const useUser = (): User => {
 export default function Sidebar() {
   const { name, role, avatarUrl, totalPageReads } = useUser();
   return (
-    <aside className="flex flex-col w-[20%] h-full px-10 items-center justify-start gap-2">
+    <aside className="flex flex-col min-w-[20%] w-[20%] h-full px-10 items-center justify-start gap-2">
       <Avatar size="lg" src={avatarUrl} />
       <div className="flex flex-col items-center justify-center gap-5">
         <div className="flex flex-col gap-10 items-center justify-normal text-center">

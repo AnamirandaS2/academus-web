@@ -6,7 +6,7 @@ export const PublicPage = () => {
   const outlet = useOutlet();
 
   return (
-    <main className="w-full h-screen overflow-hidden bg-white flex flex-col">
+    <main className="w-full h-screen overflow-hidden bg-[#fff] flex flex-col">
       <Header />
       <div className="w-full h-full flex">
         <Sidebar />

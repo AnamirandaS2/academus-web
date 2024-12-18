@@ -5,7 +5,7 @@ const data: CommentProps[] = [
     user: {
       uuid: "123e4567-e89b-12d3-a456-426614174000",
       name: "Alice Lima",
-      avatarUrl: "https://link-para-avatar.com/alice.jpg",
+      avatarUrl: "https://avatars.githubusercontent.com/u/128877022?v=4",
     },
     book: {
       uuid: "123e4567-e89b-12d3-a456-426614174001",
@@ -46,12 +46,13 @@ const data: CommentProps[] = [
     user: {
       uuid: "123e4567-e89b-12d3-a456-426614174003",
       name: "Carlos Costa",
-      avatarUrl: "https://link-para-avatar.com/carlos.jpg",
+      avatarUrl: "https://avatars.githubusercontent.com/u/128877022?v=4",
     },
     book: {
       uuid: "123e4567-e89b-12d3-a456-426614174004",
       title: "Entendendo Algoritmos",
-      coverUrl: "https://link-para-capa.com/algoritmos.jpg",
+      coverUrl:
+        "https://books.google.com.br/books/publisher/content?id=HWewDgAAQBAJ&hl=pt-BR&pg=PA4&img=1&zoom=3&bul=1&sig=ACfU3U2GsF3RfSav8pFSCLcT9HKa7Lbknw&w=1280",
     },
     progress: {
       percentage: 25,
@@ -86,12 +87,13 @@ const data: CommentProps[] = [
     user: {
       uuid: "123e4567-e89b-12d3-a456-426614174006",
       name: "Bruna Oliveira",
-      avatarUrl: "https://link-para-avatar.com/bruna.jpg",
+      avatarUrl: "https://avatars.githubusercontent.com/u/128877022?v=4",
     },
     book: {
       uuid: "123e4567-e89b-12d3-a456-426614174007",
       title: "Entendendo Algoritmos",
-      coverUrl: "https://link-para-capa.com/algoritmos.jpg",
+      coverUrl:
+        "https://books.google.com.br/books/publisher/content?id=HWewDgAAQBAJ&hl=pt-BR&pg=PA4&img=1&zoom=3&bul=1&sig=ACfU3U2GsF3RfSav8pFSCLcT9HKa7Lbknw&w=1280",
     },
     progress: {
       percentage: 60,
@@ -126,12 +128,13 @@ const data: CommentProps[] = [
     user: {
       uuid: "123e4567-e89b-12d3-a456-426614174009",
       name: "Daniel Souza",
-      avatarUrl: "https://link-para-avatar.com/daniel.jpg",
+      avatarUrl: "https://avatars.githubusercontent.com/u/128877022?v=4",
     },
     book: {
       uuid: "123e4567-e89b-12d3-a456-426614174010",
       title: "Entendendo Algoritmos",
-      coverUrl: "https://link-para-capa.com/algoritmos.jpg",
+      coverUrl:
+        "https://books.google.com.br/books/publisher/content?id=HWewDgAAQBAJ&hl=pt-BR&pg=PA4&img=1&zoom=3&bul=1&sig=ACfU3U2GsF3RfSav8pFSCLcT9HKa7Lbknw&w=1280",
     },
     progress: {
       percentage: 80,
@@ -166,12 +169,13 @@ const data: CommentProps[] = [
     user: {
       uuid: "123e4567-e89b-12d3-a456-426614174012",
       name: "Eduardo Silva",
-      avatarUrl: "https://link-para-avatar.com/eduardo.jpg",
+      avatarUrl: "https://avatars.githubusercontent.com/u/128877022?v=4",
     },
     book: {
       uuid: "123e4567-e89b-12d3-a456-426614174013",
       title: "Entendendo Algoritmos",
-      coverUrl: "https://link-para-capa.com/algoritmos.jpg",
+      coverUrl:
+        "https://books.google.com.br/books/publisher/content?id=HWewDgAAQBAJ&hl=pt-BR&pg=PA4&img=1&zoom=3&bul=1&sig=ACfU3U2GsF3RfSav8pFSCLcT9HKa7Lbknw&w=1280",
     },
     progress: {
       percentage: 55,
@@ -206,7 +210,7 @@ const data: CommentProps[] = [
 
 export function HomeContainer() {
   return (
-    <main className="w-full h-full bg-white px-20 flex flex-col gap-2">
+    <main className="w-full h-full bg-[#fff] flex flex-col gap-2">
       <h2 className="text-blue-700">Para Você</h2>
       <div className="flex flex-col gap-5 overflow-auto">
         {data.map((comment) => (

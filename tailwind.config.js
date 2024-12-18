@@ -12,6 +12,9 @@ module.exports = {
       "orange-500": "#ED4B00", // Kimchi
       "gray-200": "#9F9F9F",
       "black-60": "rgba(0, 0, 0, 0.6)",
+      "black-10": "rgba(0, 0, 0, 0.1)",
+      "text-gray": "rgba(4, 1, 54, 0.7)",
+      "green-500": "#00B109",
     },
     extend: {
       fontFamily: {

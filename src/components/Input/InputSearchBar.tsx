@@ -12,7 +12,7 @@ export const InputSearchBar = forwardRef<HTMLInputElement, InputSearchBarProps>(
           ref={ref}
           {...props}
           type="text"
-          className="w-full bg-white border-none outline-none"
+          className="w-full bg-[#fff] border-none outline-none"
         />
       </div>
     );

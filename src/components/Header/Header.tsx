@@ -5,11 +5,11 @@ import { Avatar } from "../Avatar/Avatar";
 
 export default function Header() {
   return (
-    <header className="w-full flex items-center justify-between py-4 px-10 bg-white">
+    <header className="w-full flex items-center justify-between py-4 px-10 bg-[#fff]">
       <img src={logo} alt="" className="" />
-      {/* <div className="w-[40%]">
+      <div className="w-[40%]">
         <InputSerchBar placeholder="Pesquise por autores, livros, artigos..." />
-      </div> */}
+      </div>
       <div className="flex items-center justify-between gap-5">
         <div className="flex items-start justify-between gap-2">
           <button className="hover:scale-105 hover:transition duration-300 ease-in-out">
