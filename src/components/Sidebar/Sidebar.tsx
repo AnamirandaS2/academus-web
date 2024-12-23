@@ -1,25 +1,12 @@
 import { Avatar } from "../Avatar/Avatar";
 import { BookOpen, House, Play } from "lucide-react";
 import NavButton from "../NavButton/NavButton";
-
-type User = {
-  name: string;
-  role: string;
-  avatarUrl: string;
-  totalPageReads: number;
-};
-
-const useUser = (): User => {
-  return {
-    name: "Ana Clara Pontes",
-    role: "Graduanda em Ciência da computação",
-    avatarUrl: "https://avatars.githubusercontent.com/u/128877022?v=4",
-    totalPageReads: 734,
-  };
-};
+import { useAuth } from "../../hooks/auth.hook";
+import { User } from "../../entities/User.entity";
 
 export default function Sidebar() {
-  const { name, role, avatarUrl, totalPageReads } = useUser();
+  const { user } = useAuth();
+  const { name, avatarUrl, role, totalPageReads } = user as User;
   return (
     <aside className="flex flex-col min-w-[20%] w-[20%] h-full px-10 items-center justify-start gap-2">
       <Avatar size="lg" src={avatarUrl} />

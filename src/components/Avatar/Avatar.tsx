@@ -2,7 +2,7 @@ import { tv } from "tailwind-variants";
 
 interface AvatarProps {
   size: "lg" | "sm";
-  src: string;
+  src?: string;
 }
 
 const AvatarVariants = tv({
