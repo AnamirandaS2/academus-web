@@ -1,5 +1,11 @@
-import {HomeContainer} from "./";
+import { useQuery } from "@tanstack/react-query";
+import { HomeContainer } from "./";
+import { phraseService } from "../../useCases/phraseService";
 
 export function HomePage() {
-  return <HomeContainer />;
+  const { data: phrase, isLoading: isLoadingPhrase } = useQuery({
+    queryKey: ["phrases/random"],
+    queryFn: async () => await phraseService.random(),
+  });
+  return <HomeContainer isLoadingPhrase={isLoadingPhrase} phrase={phrase} />;
 }

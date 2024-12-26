@@ -5,8 +5,8 @@ import { useAuth } from "../../hooks/auth.hook";
 import { User } from "../../entities/User.entity";
 
 export default function Sidebar() {
-  const { user } = useAuth();
-  const { name, avatarUrl, role, totalPageReads } = user as User;
+  const { user = {} as User } = useAuth();
+  const { name, avatarUrl, role, totalPageReads } = user;
   return (
     <aside className="flex flex-col min-w-[20%] w-[20%] h-full px-10 items-center justify-start gap-2">
       <Avatar size="lg" src={avatarUrl} />

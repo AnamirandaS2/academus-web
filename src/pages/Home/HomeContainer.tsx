@@ -1,6 +1,11 @@
+import { useQuery } from "@tanstack/react-query";
 import Comment, { CommentProps } from "../../components/Comment/Comment";
+import Phrase from "../../components/Phrase/Phrase";
+import { phraseService } from "../../useCases/phraseService";
+import { Phrase as PhraseType } from "../../entities/Phrase.entity";
+import Skeleton from "../../components/Skeleton/Skeleton";
 
-const data: CommentProps[] = [
+const dataC: CommentProps[] = [
   {
     user: {
       uuid: "123e4567-e89b-12d3-a456-426614174000",
@@ -208,14 +213,28 @@ const data: CommentProps[] = [
   },
 ];
 
-export function HomeContainer() {
+export type HomeContainerProps = {
+  phrase?: PhraseType;
+  isLoadingPhrase: boolean;
+};
+
+export function HomeContainer({ phrase, isLoadingPhrase }: HomeContainerProps) {
   return (
-    <main className="w-full h-full bg-[#fff] flex flex-col gap-2">
-      <h2 className="text-blue-700">Para Você</h2>
-      <div className="flex flex-col gap-5 overflow-auto">
-        {data.map((comment) => (
-          <Comment {...comment} />
-        ))}
+    <main className="w-full h-full bg-[#fff] flex gap-10">
+      <div className="flex flex-col   gap-2">
+        <h2 className="text-blue-700">Para Você</h2>
+        <div className="flex flex-col gap-5 overflow-auto  max-h-[80vh] styled-scroll">
+          {dataC.map((comment) => (
+            <Comment {...comment} />
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col w-full items-center pr-10">
+        <Phrase
+          isLoadingPhrase={isLoadingPhrase}
+          author={phrase?.author}
+          content={phrase?.content}
+        />
       </div>
     </main>
   );

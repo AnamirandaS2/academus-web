@@ -21,7 +21,7 @@ export const router = createBrowserRouter(
         <Route element={<BookPage />} path="/biblioteca/livro" />
         <Route element={<LibraryPage />} path="/biblioteca" />
       </Route>
-      <Route element={<PublicPage />}>
+      <Route element={<PublicPage/>}>
         <Route element={<SignUpPage />} path="cadastrar" />
         <Route element={<LoginPage />} path="entrar" />
       </Route>

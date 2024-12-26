@@ -10,27 +10,27 @@ type AuthContextType = {
   onLogin: (data: { email: string; password: string }) => void;
   isAuthenticated: boolean;
   user?: User;
+  isLoadingUser: boolean;
 };
 
 export const AuthContext = createContext<AuthContextType>({
   onLogin: () => {},
   isAuthenticated: false,
   user: {} as User,
+  isLoadingUser: true,
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const localToken = localStorage.getItem(ACADEMUS_TOKEN);
 
   useEffect(() => {
     if (localToken) {
-      api.defaults.headers.common.Authorization = `Bearer ${localToken}`;
-      setIsAuthenticated(true);
+      api.defaults.headers.common.Authorization = `Bearer ${localToken}`; //tem em todo lugar
     }
   }, [localToken, api]);
 
-  const { data: user } = useQuery({
-    queryKey: ["me"],
+  const { data: user, isLoading: isLoadingUser } = useQuery({
+    queryKey: ["me", localToken],
     queryFn: async () => await authService.me(),
     enabled: !!localToken,
   });
@@ -41,10 +41,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       async (error) => {
         const response = error.response;
         const request = error.config;
-        const isLoginUrl = request.url === "/entrar";
+        const isLoginUrl = request.url !== "/entrar";
         if (!isLoginUrl && response.status === 401) {
           window.location.href = "/entrar";
         }
+        return Promise.reject(error);
       }
     );
   }, [api]);
@@ -52,7 +53,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { mutate: onLogin } = useMutation({
     mutationFn: async (data: LoginData) => await authService.login(data),
     onSuccess: ({ token }) => {
-      setIsAuthenticated(true);
       localStorage.setItem(ACADEMUS_TOKEN, token);
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
     },
@@ -62,7 +62,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   });
 
   return (
-    <AuthContext.Provider value={{ onLogin, isAuthenticated, user }}>
+    <AuthContext.Provider
+      value={{ onLogin, isAuthenticated: !!user, user, isLoadingUser }}
+    >
       {children}
     </AuthContext.Provider>
   );
