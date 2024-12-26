@@ -5,4 +5,5 @@ export type UserDTO = {
   avatar_url?: string;
   role?: string;
   total_page_reads?: number;
+  cpf: string;
 };

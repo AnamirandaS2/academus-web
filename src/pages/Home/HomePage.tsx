@@ -7,5 +7,11 @@ export function HomePage() {
     queryKey: ["phrases/random"],
     queryFn: async () => await phraseService.random(),
   });
-  return <HomeContainer isLoadingPhrase={isLoadingPhrase} phrase={phrase} />;
+  return (
+    <HomeContainer
+      isLoadingComment={isLoadingPhrase}
+      isLoadingPhrase={isLoadingPhrase}
+      phrase={phrase}
+    />
+  );
 }

@@ -19,13 +19,13 @@ export default function Phrase({
       <p className="text-left w-full text-[#000066] font-semibold text-lg leading-6 ">
         {isLoadingPhrase ? (
           <div className="flex flex-wrap gap-2">
-            <Skeleton className="w-[60%] h-3" />
-            <Skeleton className="w-[30%] h-3" />
-            <Skeleton className="w-[90%] h-3" />
-            <Skeleton className="w-[40%] h-3" />
-            <Skeleton className="w-[40%] h-3" />
-            <Skeleton className="w-[10%] h-3" />
-            <Skeleton className="w-[70%] h-3" />
+            <Skeleton className="w-[60%] h-3 rounded" />
+            <Skeleton className="w-[30%] h-3 rounded" />
+            <Skeleton className="w-[90%] h-3 rounded" />
+            <Skeleton className="w-[40%] h-3 rounded" />
+            <Skeleton className="w-[40%] h-3 rounded" />
+            <Skeleton className="w-[10%] h-3 rounded" />
+            <Skeleton className="w-[70%] h-3 rounded" />
           </div>
         ) : (
           content

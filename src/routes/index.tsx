@@ -10,10 +10,11 @@ import { ProtectedPage } from "../pages/ProtectedPage";
 import { BookPage } from "../pages/Book";
 import { LibraryPage } from "../pages/Library";
 import PublicPage from "../pages/PublicPage";
+import ProviderPage from "../pages/ProviderPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
+    <Route element={<ProviderPage />}>
       <Route element={<ProtectedPage />}>
         <Route element={<HomePage />} path="home" />
         <Route element={<HomePage />} path="*" />
@@ -21,7 +22,7 @@ export const router = createBrowserRouter(
         <Route element={<BookPage />} path="/biblioteca/livro" />
         <Route element={<LibraryPage />} path="/biblioteca" />
       </Route>
-      <Route element={<PublicPage/>}>
+      <Route element={<PublicPage />}>
         <Route element={<SignUpPage />} path="cadastrar" />
         <Route element={<LoginPage />} path="entrar" />
       </Route>

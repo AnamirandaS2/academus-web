@@ -5,4 +5,5 @@ export type User = {
   avatarUrl?: string;
   role?: string;
   totalPageReads?: number;
+  cpf: string;
 };

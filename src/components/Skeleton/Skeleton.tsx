@@ -9,7 +9,7 @@ export default function Skeleton({ className = "" }: SkeletonProps) {
 
   useEffect(() => {
     if (skeletonRef.current) {
-      skeletonRef.current.className = `animate-pulse bg-gray-200 rounded ${className}`;
+      skeletonRef.current.className = `animate-pulse bg-gray-200 ${className}`;
     }
   }, [className]);
 

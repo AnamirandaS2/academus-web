@@ -9,5 +9,6 @@ export const userMapDto = (data: UserDTO): User => {
     avatarUrl: data.avatar_url,
     role: data.role,
     totalPageReads: data.total_page_reads,
+    cpf: data.cpf,
   };
 };

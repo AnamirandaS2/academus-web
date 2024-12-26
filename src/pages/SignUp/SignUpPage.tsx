@@ -1,5 +1,8 @@
 import { SignUpContainer } from "./SignUpContainer";
+import { useAuth } from "../../hooks/auth.hook";
 
 export function SignUpPage() {
-  return <SignUpContainer />;
+  const { onRegister } = useAuth();
+
+  return <SignUpContainer onSubmit={onRegister} />;
 }

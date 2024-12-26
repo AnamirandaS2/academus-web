@@ -1,9 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import Comment, { CommentProps } from "../../components/Comment/Comment";
 import Phrase from "../../components/Phrase/Phrase";
-import { phraseService } from "../../useCases/phraseService";
 import { Phrase as PhraseType } from "../../entities/Phrase.entity";
-import Skeleton from "../../components/Skeleton/Skeleton";
 
 const dataC: CommentProps[] = [
   {
@@ -216,16 +213,21 @@ const dataC: CommentProps[] = [
 export type HomeContainerProps = {
   phrase?: PhraseType;
   isLoadingPhrase: boolean;
+  isLoadingComment: boolean;
 };
 
-export function HomeContainer({ phrase, isLoadingPhrase }: HomeContainerProps) {
+export function HomeContainer({
+  phrase,
+  isLoadingPhrase,
+  isLoadingComment,
+}: HomeContainerProps) {
   return (
     <main className="w-full h-full bg-[#fff] flex gap-10">
       <div className="flex flex-col   gap-2">
         <h2 className="text-blue-700">Para Você</h2>
-        <div className="flex flex-col gap-5 overflow-auto  max-h-[80vh] styled-scroll">
+        <div className="flex flex-col gap-5 overflow-auto w-[750px] max-h-[80vh] styled-scroll">
           {dataC.map((comment) => (
-            <Comment {...comment} />
+            <Comment {...comment} isLoading={isLoadingPhrase} />
           ))}
         </div>
       </div>

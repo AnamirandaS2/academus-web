@@ -2,7 +2,7 @@ import { Navigate, useOutlet } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { useAuth } from "../hooks/auth.hook";
-import Skeleton from "../components/Skeleton/Skeleton";
+import { LoaderCircle } from "lucide-react";
 
 export const ProtectedPage = () => {
   const outlet = useOutlet();
@@ -11,7 +11,7 @@ export const ProtectedPage = () => {
   if (isLoadingUser) {
     return (
       <div className="flex w-screen h-screen items-center justify-center">
-        <Skeleton className="w-40 h-40" />
+        <LoaderCircle className="animate-spin text-blue-900" size={40} />
       </div>
     );
   }

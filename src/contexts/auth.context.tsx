@@ -1,16 +1,18 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { authService } from "../useCases/authService";
-import { LoginData } from "../useCases/authService/IAuthService";
+import { LoginData, RegisterData } from "../useCases/authService/IAuthService";
 import { ACADEMUS_TOKEN } from "../utils/constants";
 import { api } from "../services/api";
 import { User } from "../entities/User.entity";
+import { useNavigate } from "react-router-dom";
 
 type AuthContextType = {
   onLogin: (data: { email: string; password: string }) => void;
   isAuthenticated: boolean;
   user?: User;
   isLoadingUser: boolean;
+  onRegister: (data: RegisterData) => void;
 };
 
 export const AuthContext = createContext<AuthContextType>({
@@ -18,10 +20,12 @@ export const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
   user: {} as User,
   isLoadingUser: true,
+  onRegister: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const localToken = localStorage.getItem(ACADEMUS_TOKEN);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localToken) {
@@ -61,9 +65,25 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     },
   });
 
+  const { mutate: onRegister } = useMutation({
+    mutationFn: async (data: RegisterData) => await authService.register(data),
+    onSuccess: () => {
+      navigate("/entrar");
+    },
+    onError: (error: unknown) => {
+      alert("Register failed" + error);
+    },
+  });
+
   return (
     <AuthContext.Provider
-      value={{ onLogin, isAuthenticated: !!user, user, isLoadingUser }}
+      value={{
+        onLogin,
+        isAuthenticated: !!user,
+        user,
+        isLoadingUser,
+        onRegister,
+      }}
     >
       {children}
     </AuthContext.Provider>
