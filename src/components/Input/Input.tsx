@@ -6,7 +6,7 @@ const InputVariants = tv({
   variants: {
     borderColor: {
       gray: " border-gray-200",
-      blue: " border-blue-900",
+      blue: " border-blue-700",
     },
     size: {
       regular: "h-12 px-4",
@@ -22,7 +22,7 @@ const InputVariants = tv({
   },
 });
 
-interface InputProps
+export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   size?: "regular" | "big";
   borderColor: "gray" | "blue";

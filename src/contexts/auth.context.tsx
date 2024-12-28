@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { authService } from "../useCases/authService";
 import { LoginData, RegisterData } from "../useCases/authService/IAuthService";
@@ -6,6 +6,7 @@ import { ACADEMUS_TOKEN } from "../utils/constants";
 import { api } from "../services/api";
 import { User } from "../entities/User.entity";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 type AuthContextType = {
   onLogin: (data: { email: string; password: string }) => void;
@@ -68,10 +69,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { mutate: onRegister } = useMutation({
     mutationFn: async (data: RegisterData) => await authService.register(data),
     onSuccess: () => {
+      toast.success("Usuário cadastrado com sucesso!", {
+        position: "top-right",
+        autoClose: 5000,
+      });
       navigate("/entrar");
     },
     onError: (error: unknown) => {
-      alert("Register failed" + error);
+      toast.error("Falha ao cadastrar usuário. Tente novamente.", {
+        position: "top-right",
+        autoClose: 5000,
+      });
+      console.error("Register failed", error);
     },
   });
 

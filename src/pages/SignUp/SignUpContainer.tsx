@@ -1,10 +1,10 @@
-import { Input } from "../../components/Input/Input";
+import { Input, InputProps } from "../../components/Input/Input";
 import bgLogin from "../../assets/unsplash_o0Qqw21-0NI (1).svg";
 import { Button } from "../../components/Button/Button";
 import { InputPassword } from "../../components/Input/InputPassword";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import InputMask from "react-input-mask";
+import { formatCpf } from "../../utils/masks";
 
 export type RegisterData = {
   name: string;
@@ -18,12 +18,7 @@ export type RegisterContainerProps = {
 };
 
 export function SignUpContainer({ onSubmit }: RegisterContainerProps) {
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<RegisterData>();
+  const { register, handleSubmit } = useForm<RegisterData>();
 
   return (
     <main className="w-full min-h-screen flex items-center justify-center">
@@ -60,16 +55,11 @@ export function SignUpContainer({ onSubmit }: RegisterContainerProps) {
               <label htmlFor="" className="font-poppins text-base">
                 CPF
               </label>
-              <InputMask mask="999.999.999-99" {...register("cpf")}>
-                {(inputProps: any) => (
-                  <Input
-                    {...inputProps}
-                    placeholder="Digite seu CPF aqui"
-                    size="regular"
-                    borderColor="gray"
-                  />
-                )}
-              </InputMask>
+              <Input
+                {...register("cpf")}
+                placeholder="Digite seu CPF aqui"
+                borderColor="gray"
+              />
             </div>
             <div className="flex flex-col items-start gap-2">
               <label htmlFor="" className="font-poppins text-base">

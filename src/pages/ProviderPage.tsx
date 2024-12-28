@@ -6,7 +6,9 @@ export default function ProviderPage() {
 
   return (
     <>
-      <AuthProvider>{outlet}</AuthProvider>
+      <AuthProvider>
+        {outlet}
+      </AuthProvider>
     </>
   );
 }
