@@ -47,7 +47,9 @@ export function LoginContainer({ onSubmit }: LoginContainerProps) {
               />
             </div>
             <div className="w-full px-2 flex items-center">
-              <Button title="Entrar" type="submit" />
+              <Button title="Entrar" type="submit">
+                Entrar
+              </Button>
             </div>
           </form>
         </div>

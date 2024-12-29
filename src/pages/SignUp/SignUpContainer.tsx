@@ -22,8 +22,8 @@ export function SignUpContainer({ onSubmit }: RegisterContainerProps) {
 
   return (
     <main className="w-full min-h-screen flex items-center justify-center">
-      <div className="flex flex-col w-[50%] items-center max-md:w-full max-md:px-10 justify-center px-12 gap-10">
-        <div className="flex flex-col w-full items-center justify-center gap-12">
+      <div className="flex flex-col w-[50%] items-center max-md:w-full max-md:px-10 justify-center px-12 gap-5">
+        <div className="flex flex-col w-full items-center justify-center gap-7">
           <h1 className="font-poppins text-2xl font-medium">Cadastre-se</h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -71,7 +71,9 @@ export function SignUpContainer({ onSubmit }: RegisterContainerProps) {
               />
             </div>
             <div className="w-full px-2 flex items-center">
-              <Button title="Cadastrar" type="submit" />
+              <Button title="Cadastrar" type="submit">
+                Cadastrar
+              </Button>
             </div>
           </form>
         </div>
