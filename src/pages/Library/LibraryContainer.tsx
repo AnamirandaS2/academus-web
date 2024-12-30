@@ -1,6 +1,7 @@
 import { BookOpen } from "lucide-react";
 import { ActionCard } from "../../components/ActionCard/ActionCard";
-import CreateFormBook from "../../components/CreateFormBook/CreateFormBook";
+import CreateFormBook from "../../components/FormColletionDialog/FormColletionDialog";
+import { CollectionCard } from "./CollectionCard/CollectionCard";
 
 export type LibraryContainerProps = {
   onOpenModal: () => void;
@@ -11,6 +12,12 @@ export function LibraryContainer({
   onOpenModal,
   isOpenModal,
 }: LibraryContainerProps) {
+  const bookCovers = [
+    "https://m.media-amazon.com/images/I/71Vkg7GfPFL._AC_UF1000,1000_QL80_.jpg",
+    // "https://m.media-amazon.com/images/I/71JpZHEGvWL._UF894,1000_QL80_.jpg",
+    "https://m.media-amazon.com/images/I/61aIS4n2jZL._AC_UF1000,1000_QL80_.jpg",
+  ];
+
   return (
     <div className="flex flex-col w-full gap-3">
       <CreateFormBook onCloseModal={onOpenModal} isOpenModal={isOpenModal} />
@@ -25,11 +32,21 @@ export function LibraryContainer({
           3
         </div>
       </div>
-      <div className="flex h-full">
-        <div className="flex h-full flex-wrap">
+      <div className="flex w-full h-full">
+        <div className="flex w-full h-full gap-10 flex-wrap">
           <ActionCard
             onClick={onOpenModal}
             title="Adicionar uma nova coleção"
+          />
+          <CollectionCard name="Todos" bookCovers={bookCovers} />
+          <CollectionCard
+            name="Ciência da computação"
+            bookCovers={bookCovers}
+          />
+          <CollectionCard name="Tecnologia" bookCovers={bookCovers} />
+          <CollectionCard
+            name="bakjbjdkjfakdbkjskjdlshkjfdsfsd"
+            bookCovers={bookCovers}
           />
         </div>
       </div>

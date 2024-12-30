@@ -3,15 +3,15 @@ import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { Modal } from "../Modal/Modal";
 
-export type CreateFormBookProps = {
+export type FormColletionDialogProps = {
   isOpenModal: boolean;
   onCloseModal: () => void;
 };
 
-export default function CreateFormBook({
+export default function FormColletionDialog({
   isOpenModal,
   onCloseModal,
-}: CreateFormBookProps) {
+}: FormColletionDialogProps) {
   return (
     <Modal onClose={onCloseModal} isOpen={isOpenModal}>
       <div className="max-w-[30%] w-full h-full flex flex-col items-start justify-start px-5 py-5  gap-1 bg-[#fff] rounded-lg">
@@ -27,7 +27,11 @@ export default function CreateFormBook({
           <div className="flex w-full gap-2 items-end justify-between">
             <Input borderColor="blue" />
           </div>
-          <Button type="submit" size="small" className="flex gap-2 items-center justify-center py-1 text-sm">
+          <Button
+            type="submit"
+            size="small"
+            className="flex gap-2 items-center justify-center py-1 text-sm"
+          >
             <PlusCircle size={14} /> Adicionar
           </Button>
         </form>

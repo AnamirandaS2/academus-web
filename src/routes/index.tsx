@@ -11,6 +11,7 @@ import { BookPage } from "../pages/Book";
 import { LibraryPage } from "../pages/Library";
 import PublicPage from "../pages/PublicPage";
 import ProviderPage from "../pages/ProviderPage";
+import { CollectionPage } from "../pages/Collection";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,8 +20,12 @@ export const router = createBrowserRouter(
         <Route element={<HomePage />} path="home" />
         <Route element={<HomePage />} path="*" />
         <Route element={<HomePage />} path="/" />
-        <Route element={<BookPage />} path="/biblioteca/livro" />
-        <Route element={<LibraryPage />} path="/biblioteca" />
+
+        <Route path="biblioteca">
+          <Route index element={<LibraryPage />} />
+          <Route path="colecao" element={<CollectionPage />} />
+          <Route path="colecao/livro" element={<BookPage />} />
+        </Route>
       </Route>
       <Route element={<PublicPage />}>
         <Route element={<SignUpPage />} path="cadastrar" />
