@@ -1,3 +1,4 @@
+import { collectionMapDto } from "../../mapDto/collectionMapDto";
 import { api } from "../../services/api";
 
 export class CollectionService {
@@ -7,6 +8,6 @@ export class CollectionService {
   async create(name: string) {
     return await api
       .post("/collections", { name })
-      .then((response) => response.data);
+      .then(({ data }) => collectionMapDto(data));
   }
 }

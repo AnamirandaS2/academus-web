@@ -52,7 +52,7 @@ export function LibraryContainer({
               isLoading={isLoadingCollection}
               key={col.name}
               name={col.name}
-              bookCovers={col.books.map((book) => book.cover_url)}
+              bookCovers={col.books.map((book) => book.coverUrl)}
             />
           ))}
         </div>
