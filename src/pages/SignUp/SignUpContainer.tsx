@@ -1,10 +1,9 @@
-import { Input, InputProps } from "../../components/Input/Input";
+import { Input } from "../../components/Input/Input";
 import bgLogin from "../../assets/unsplash_o0Qqw21-0NI (1).svg";
 import { Button } from "../../components/Button/Button";
 import { InputPassword } from "../../components/Input/InputPassword";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { formatCpf } from "../../utils/masks";
 
 export type RegisterData = {
   name: string;
