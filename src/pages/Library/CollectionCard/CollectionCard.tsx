@@ -11,7 +11,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
   bookCovers,
   name,
   isLoading,
-}) => {
+}) => { 
   const displayedCovers = bookCovers.slice(0, 3);
   const defaultCover = EmptyPng;
 
@@ -24,7 +24,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
         {isLoading ? (
           <Skeleton className="w-full h-full" />
         ) : displayedCovers.length > 0 ? (
-          displayedCovers.map((cover, index) => (
+          displayedCovers.map((cover, index) => ( 
             <img
               key={index}
               src={cover}
