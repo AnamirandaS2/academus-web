@@ -2,6 +2,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  useParams,
 } from "react-router-dom";
 import { LoginPage } from "../pages/Login";
 import { SignUpPage } from "../pages/SignUp";
@@ -23,8 +24,10 @@ export const router = createBrowserRouter(
 
         <Route path="biblioteca">
           <Route index element={<LibraryPage />} />
-          <Route path="colecao" element={<CollectionPage />} />
-          <Route path="colecao/livro" element={<BookPage />} />
+          <Route path="colecao">
+            <Route path=":collectionId" element={<CollectionPage />} />
+            <Route path=":collectionId/livro/:bookId" element={<BookPage />} />
+          </Route>
         </Route>
       </Route>
       <Route element={<PublicPage />}>

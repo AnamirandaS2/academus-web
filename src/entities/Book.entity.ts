@@ -1,5 +1,14 @@
 export type Book = {
-  uuid: string;
   title: string;
-  coverUrl: string;
+  isbn: string;
+  volume?: string;
+  publisher: string;
+  edition: string;
+  year: number;
+  numberOfPages: number;
+  synopsis: string;
+  languageUuid: string;
+  uuid: string;
+  bookCoverUrl: string;
+  url: string;
 };

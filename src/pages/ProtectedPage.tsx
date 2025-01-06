@@ -20,9 +20,9 @@ export const ProtectedPage = () => {
   }
 
   return (
-    <main className="w-full min-h-screen overflow-hidden bg-[#fff] flex flex-col">
+    <main className="w-full min-h-screen max-h-screen  bg-[#fff] flex flex-col">
       <Header />
-      <div className="w-full h-full flex">
+      <div className="w-full h-full flex ">
         <Sidebar />
         {outlet}
       </div>

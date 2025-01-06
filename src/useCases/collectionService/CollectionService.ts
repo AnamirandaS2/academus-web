@@ -10,4 +10,18 @@ export class CollectionService {
       .post("/collections", { name })
       .then(({ data }) => collectionMapDto(data));
   }
+  async show(collectionId: string) {
+    return await api
+      .get(`/collections/${collectionId}`)
+      .then((response) => response.data);
+  }
+  async syncBook({
+    bookId,
+    collectionId,
+  }: {
+    bookId: string;
+    collectionId: string;
+  }): Promise<void> {
+    await api.post(`/collections/${collectionId}/books/${bookId}`);
+  }
 }

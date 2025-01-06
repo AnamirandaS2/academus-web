@@ -3,6 +3,7 @@ import { ActionCard } from "../../components/ActionCard/ActionCard";
 import CreateFormBook from "../../components/FormColletionDialog/FormColletionDialog";
 import { CollectionCard } from "./CollectionCard/CollectionCard";
 import { Collection } from "../../entities/Collection.entity";
+import Skeleton from "../../components/Skeleton/Skeleton";
 
 export type LibraryContainerProps = {
   onOpenModal: () => void;
@@ -20,14 +21,12 @@ export function LibraryContainer({
   isLoadingCollection,
 }: LibraryContainerProps) {
   return (
-    <div className="flex flex-col w-full gap-3">
+    <div className="flex flex-col w-full h-full gap-5">
       <CreateFormBook
         onSubmit={onSubmit}
         onCloseModal={onOpenModal}
         isOpenModal={isOpenModal}
       />
-
-      {/* Cabeçalho */}
       <div className="flex gap-3 items-center">
         <div className="flex gap-2 items-center">
           <div className="h-10 w-10 rounded-full bg-blue-700 flex items-center justify-center">
@@ -40,22 +39,24 @@ export function LibraryContainer({
         </div>
       </div>
 
-      <div className="flex w-full h-full overflow-y-auto  styled-scroll">
-        <div className="flex w-full gap-10 flex-wrap justify-start items-start">
-          <ActionCard
-            onClick={onOpenModal}
-            title="Adicionar uma nova coleção"
-          />
+      <div className="flex w-full max-h-[75vh] h-full overflow-auto styled-scroll  gap-10 flex-wrap justify-start items-start ">
+        <ActionCard onClick={onOpenModal} title="Adicionar uma nova coleção" />
 
-          {collection.map((col) => (
-            <CollectionCard
-              isLoading={isLoadingCollection}
-              key={col.name}
-              name={col.name}
-              bookCovers={col.books.map((book) => book.coverUrl)}
-            />
-          ))}
-        </div>
+        {isLoadingCollection
+          ? Array.from({ length: collection.length || 5 }).map((_, index) => (
+              <Skeleton
+                key={index}
+                className="w-[140px] h-[220px] rounded-md"
+              />
+            ))
+          : collection.map((col) => (
+              <CollectionCard
+                data={col}
+                isLoading={isLoadingCollection}
+                key={col.uuid}
+                bookCovers={col.books.map((book) => book.bookCoverUrl)}
+              />
+            ))}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ export const ActionCard = forwardRef<HTMLDivElement, ActionCardProps>(
       <div
         ref={ref}
         {...props}
-        className="max-w-[160px] w-full max-h-[220px] h-full hover:scale-95 hover:ease-in-out hover:duration-300 cursor-pointer border-2 rounded-md border-dashed border-blue-700 flex items-center justify-center"
+        className="max-w-[160px] w-full max-h-[220px] min-h-[220px] h-full hover:scale-95 hover:ease-in-out hover:duration-300 cursor-pointer border-2 rounded-md border-dashed border-blue-700 flex items-center justify-center"
       >
         <div className="flex flex-col w-full h-full items-center justify-center gap-1">
           <PlusCircle color="#02066f" />
