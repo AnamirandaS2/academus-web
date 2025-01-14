@@ -5,6 +5,7 @@ import { Collection } from "../../entities/Collection.entity";
 import { ActionCard } from "../../components/ActionCard/ActionCard";
 import { BookFormData } from "../../useCases/bookService/IBookService";
 import { Language } from "../../entities/Language.entity";
+import { BookCard } from "./BookCard/BookCard";
 
 export type CollectionContainerProps = {
   onOpenModal: () => void;
@@ -51,8 +52,11 @@ export function CollectionContainer({
             </div>
           </div>
           <div className="flex w-full h-full  ">
-            <div className="flex h-full w-full ">
+            <div className="flex flex-wrap h-full w-full gap-10">
               <ActionCard onClick={onOpenModal} title="Adicionar um livro" />
+              {data.books.map((book) => (
+                <BookCard data={book} />
+              ))}
             </div>
           </div>
         </div>

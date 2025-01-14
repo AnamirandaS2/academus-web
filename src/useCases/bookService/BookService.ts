@@ -24,4 +24,8 @@ export class BookService implements IBookService {
       .post("/books/create", formData)
       .then(({ data }) => bookMapDto(data));
   }
+
+  async show(bookId: string) {
+    return await api.get(`/books/${bookId}`).then((response) => response.data);
+  }
 }
