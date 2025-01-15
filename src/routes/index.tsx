@@ -2,6 +2,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  useParams,
 } from "react-router-dom";
 import { LoginPage } from "../pages/Login";
 import { SignUpPage } from "../pages/SignUp";
@@ -10,16 +11,24 @@ import { ProtectedPage } from "../pages/ProtectedPage";
 import { BookPage } from "../pages/Book";
 import { LibraryPage } from "../pages/Library";
 import PublicPage from "../pages/PublicPage";
+import ProviderPage from "../pages/ProviderPage";
+import { CollectionPage } from "../pages/Collection";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
+    <Route element={<ProviderPage />}>
       <Route element={<ProtectedPage />}>
         <Route element={<HomePage />} path="home" />
         <Route element={<HomePage />} path="*" />
         <Route element={<HomePage />} path="/" />
-        <Route element={<BookPage />} path="/biblioteca/livro" />
-        <Route element={<LibraryPage />} path="/biblioteca" />
+
+        <Route path="biblioteca">
+          <Route index element={<LibraryPage />} />
+          <Route path="colecao">
+            <Route path=":collectionId" element={<CollectionPage />} />
+            <Route path=":collectionId/livro/:bookId" element={<BookPage />} />
+          </Route>
+        </Route>
       </Route>
       <Route element={<PublicPage />}>
         <Route element={<SignUpPage />} path="cadastrar" />

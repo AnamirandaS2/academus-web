@@ -1,14 +1,14 @@
 import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import { router } from "./routes";
-import { AuthProvider } from "./contexts/auth.context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ToastContainer } from "react-toastify";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 2, // Retry failed queries 2 times
-      refetchOnWindowFocus: false, // Disable refetch on window focus
+      retry: 2, 
+      refetchOnWindowFocus: false, 
     },
   },
 });
@@ -17,9 +17,8 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <RouterProvider router={router} />
-        </AuthProvider>
+        <RouterProvider router={router} />
+        <ToastContainer />
       </QueryClientProvider>
     </>
   );

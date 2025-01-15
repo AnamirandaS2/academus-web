@@ -8,5 +8,9 @@ export default function PublicPage() {
     return <Navigate to={"/home"} />;
   }
 
-  return <div>{outlet}</div>;
+  return (
+    <div>
+      {outlet}
+    </div>
+  );
 }

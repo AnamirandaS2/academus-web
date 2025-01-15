@@ -2,11 +2,11 @@ import React, { forwardRef } from "react";
 import { tv } from "tailwind-variants";
 
 const InputVariants = tv({
-  base: "w-full border rounded-xl text-black font-poppins text-base placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500",
+  base: "w-full h-full border rounded-xl text-black font-poppins text-base placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500",
   variants: {
     borderColor: {
       gray: " border-gray-200",
-      blue: " border-blue-900",
+      blue: " border-blue-700",
     },
     size: {
       regular: "h-12 px-4",
@@ -22,7 +22,7 @@ const InputVariants = tv({
   },
 });
 
-interface InputProps
+export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   size?: "regular" | "big";
   borderColor: "gray" | "blue";
@@ -33,8 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const variantClasses = InputVariants({ size, borderColor });
 
     return (
-      <div className="w-full flex items-center justify-center">
-        <div></div>
+      <div className="w-full h-full flex items-center justify-center">
         <input required ref={ref} {...props} className={`${variantClasses}`} />
       </div>
     );

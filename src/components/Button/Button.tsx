@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children, forwardRef } from "react";
 import { tv } from "tailwind-variants";
 
 const ButtonVariants = tv({
@@ -9,6 +9,7 @@ const ButtonVariants = tv({
       blue: " border-blue-900",
     },
     size: {
+      small: "h-8 px-4",
       regular: "h-12 px-4",
       big: "h-12 px-8",
     },
@@ -24,20 +25,17 @@ const ButtonVariants = tv({
 
 interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "size"> {
-  size?: "regular" | "big";
-  title?: string;
-  icon?: React.ReactNode;
+  size?: "regular" | "big" | "small";
 }
 
-export const Button = ({ size, title, icon, ...props }: ButtonProps) => {
-  const variantClasses = ButtonVariants({ size });
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ size, children, className, ...props }, ref) => {
+    const variantClasses = ButtonVariants({ size });
 
-  return (
-    <div className="w-full flex items-center justify-center">
-      <button {...props} className={`${variantClasses}`}>
-        <div>{icon}</div>
-        {title}
+    return (
+      <button {...props} ref={ref} className={`${variantClasses} ${className}`}>
+        {children}
       </button>
-    </div>
-  );
-};
+    );
+  }
+);
