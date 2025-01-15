@@ -7,8 +7,8 @@ import { ToastContainer } from "react-toastify";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 2, // Retry failed queries 2 times
-      refetchOnWindowFocus: false, // Disable refetch on window focus
+      retry: 2, 
+      refetchOnWindowFocus: false, 
     },
   },
 });
