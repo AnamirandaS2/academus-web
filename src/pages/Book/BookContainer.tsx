@@ -11,7 +11,6 @@ import { ProgressCircular } from "../../components/Progress/ProgressCircular";
 import dayjs from "dayjs";
 import NewCommentInput from "../../components/Comment/NewCommentInput";
 import { useRef } from "react";
-import ProgressCard from "../../components/Progress/ProgressCard";
 import { BookDetails } from "../../entities/BookDetails.entity";
 
 export type BookContainerProps = {

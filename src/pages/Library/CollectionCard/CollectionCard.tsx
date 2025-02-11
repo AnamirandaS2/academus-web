@@ -1,6 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import EmptyPng from "../../../assets/empty-300x240.jpg";
-import Skeleton from "../../../components/Skeleton/Skeleton";
 import { Collection } from "../../../entities/Collection.entity";
 
 type CollectionCardProps = {
@@ -11,7 +10,6 @@ type CollectionCardProps = {
 
 export const CollectionCard: React.FC<CollectionCardProps> = ({
   bookCovers,
-  isLoading,
   data,
 }) => {
   const { name, uuid } = data;

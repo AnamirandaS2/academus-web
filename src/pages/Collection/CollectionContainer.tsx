@@ -1,4 +1,4 @@
-import { ArrowLeft, BookOpen, Divide, LoaderCircle } from "lucide-react";
+import { ArrowLeft, LoaderCircle } from "lucide-react";
 import { FormCreateBookDialog } from "../../components/FormCreateBookDialog/FormCreateBookDialog";
 import { Link } from "react-router-dom";
 import { Collection } from "../../entities/Collection.entity";

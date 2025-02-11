@@ -1,4 +1,4 @@
-import { House, LucideProps } from "lucide-react";
+import { LucideProps } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 type NavButtonProps = {

@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { BookContainer } from "./";
-import { BookContainerProps } from "./BookContainer";
 import { bookService } from "../../useCases/bookService";
 import { useParams } from "react-router-dom";
 

@@ -1,4 +1,3 @@
-import { Collection } from "../../../entities/Collection.entity";
 import { Book } from "../../../entities/Book.entity";
 import { Link } from "react-router-dom";
 
