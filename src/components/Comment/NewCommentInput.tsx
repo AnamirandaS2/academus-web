@@ -1,4 +1,3 @@
-import { useRef, useState } from "react";
 import { Avatar } from "../Avatar/Avatar";
 
 export type NewCommentInputProps = {

@@ -43,6 +43,7 @@ const dataC: CommentProps[] = [
         "O livro Entendendo Algoritmos apresenta uma abordagem agradável para esse tópico essencial da ciência da computação. Nele, você aprenderá como aplicar algoritmos comuns nos problemas de programação enfrentados diariamente. Você começará com tarefas básicas como a ordenação e a pesquisa. Com a prática, você enfrentará problemas mais complexos, como a compressão de dados e a inteligência artificial. ",
       createdAt: "2024-06-16T12:30:00Z",
     },
+    isLoading: false
   },
   {
     user: {
@@ -84,6 +85,7 @@ const dataC: CommentProps[] = [
         "Com a prática, você enfrentará problemas mais complexos, como a compressão de dados e a inteligência artificial.",
       createdAt: "2024-06-17T10:00:00Z",
     },
+    isLoading: false
   },
   {
     user: {
@@ -125,6 +127,8 @@ const dataC: CommentProps[] = [
         "Nele, você aprenderá como aplicar algoritmos comuns nos problemas de programação enfrentados diariamente.",
       createdAt: "2024-06-17T11:00:00Z",
     },
+    isLoading: false
+
   },
   {
     user: {
@@ -166,6 +170,8 @@ const dataC: CommentProps[] = [
         "Você começará com tarefas básicas como a ordenação e a pesquisa, evoluindo para tópicos mais avançados.",
       createdAt: "2024-06-18T12:30:00Z",
     },
+    isLoading: false
+
   },
   {
     user: {
@@ -207,6 +213,8 @@ const dataC: CommentProps[] = [
         "A teoria por trás dos algoritmos é bem explicada, com boa cobertura sobre o funcionamento de algoritmos clássicos.",
       createdAt: "2024-06-18T14:00:00Z",
     },
+    isLoading: false
+
   },
 ];
 
@@ -219,7 +227,6 @@ export type HomeContainerProps = {
 export function HomeContainer({
   phrase,
   isLoadingPhrase,
-  isLoadingComment,
 }: HomeContainerProps) {
   return (
     <main className="w-full h-full bg-[#fff] flex gap-10">

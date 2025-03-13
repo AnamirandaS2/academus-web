@@ -2,7 +2,6 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  useParams,
 } from "react-router-dom";
 import { LoginPage } from "../pages/Login";
 import { SignUpPage } from "../pages/SignUp";
